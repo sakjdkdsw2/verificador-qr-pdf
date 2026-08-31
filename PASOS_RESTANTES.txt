@@ -1,0 +1,12 @@
+PASOS RESTANTES DESPUÉS DE CONFIGURAR DNS EN NIC CHILE
+======================================================
+
+1. ESPERAR PROPAGACIÓN DNS (hasta 24h, normalmente <30 min)
+2. VERCEL → project Settings → Domains → agregar:
+      verificador-certificado-antecedentes.api.ditrab.cl
+3. VERCEL valida el dominio automáticamente (SSL gratis)
+4. PROBAR: abrir en navegador https://verificador-certificado-antecedentes.api.ditrab.cl/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
+5. REGENERAR QR con el script:
+      python generate_qr.py JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
+6. SUBIR EL NUEVO QR AL REPO (opcional):
+      git add . && git commit -m "update qr" && git push
