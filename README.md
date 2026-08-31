@@ -2,8 +2,13 @@
 
 ## ¿Qué es esto?
 Un sistema para servir PDFs protegidos por token a través de QR codes.
-- Tu URL final será: `https://TU-PROYECTO.vercel.app/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ`
-- Cuando compres el dominio, lo conectás y será: `https://tudominio.com/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ`
+- **URL final de producción:** `https://verificador-certificado-antecedentes.api.dirtrab.cl/<TOKEN>`
+- **URL de desarrollo (Vercel):** `https://verificador-qr-pdf.vercel.app/<TOKEN>`
+- Cuando comprés el dominio `dirtrab.cl` y conectes el subdominio `verificador-certificado-antecedentes`, todas las URLs pasarán a apuntar a producción.
+
+## Ejemplo con el token de muestra
+- Producción: https://verificador-certificado-antecedentes.api.dirtrab.cl/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
+- Vercel (dev):  https://verificador-qr-pdf.vercel.app/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
 
 ---
 
@@ -17,7 +22,7 @@ Un sistema para servir PDFs protegidos por token a través de QR codes.
 ## PASO 2 — Subir este proyecto a GitHub
 1. Entra a https://github.com → **New repository**
 2. Nombre: `verificador-qr-pdf`
-3. Marelo como **Public**
+3. Marcalo como **Public**
 4. Click **Create repository**
 5. En esa página vacía, scroll hasta **"push an existing folder"**
 6. Copiá los 2 comandos y ejecutalos en la terminal desde esta carpeta:
@@ -75,7 +80,7 @@ Ejecutá esto (ya tenés `qrcode` instalado):
 ```python
 import qrcode
 
-dominio = "https://verificador-qr-pdf.vercel.app"
+dominio = "https://verificador-certificado-antecedentes.api.dirtrab.cl"
 token   = "JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ"
 url     = f"{dominio}/{token}"
 
@@ -87,17 +92,30 @@ img.save("qr_contrato.png")
 print(f"QR generado: {url}")
 ```
 
+> Mientras no tengas el dominio custom, cambiá `dominio` a
+> `https://verificador-qr-pdf.vercel.app` para probar.
+
 ---
 
-## PASO 6 — Conectar tu dominio (cuando lo compres)
-1. Comprá el dominio (ej: `midominio.cl`)
-2. En Vercel → tu proyecto → **Settings** → **Domains**
-3. Escribí tu dominio → **Add**
-4. Vercel te da los **DNS records** que tenés que configurar en tu registrador:
-   - Tipo `A` → `76.76.21.21`
-   - Tipo `CNAME` → `cname.vercel-dns.com`
-5. Esperá a que se valide (puede tardar hasta 24h)
-6. Listo: `https://tudominio.com/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ`
+## PASO 6 — Conectar el dominio `verificador-certificado-antecedentes.api.dirtrab.cl`
+
+### 6.1 Comprar y configurar el dominio base
+1. Comprá `dirtrab.cl` en https://nic.cl (requiere RUT o pasaporte)
+2. En NIC Chile → panel del dominio → **DNS** / **Zona DNS** → crear registros:
+
+| Tipo   | Host                                              | Valor                  |
+|--------|---------------------------------------------------|------------------------|
+| A      | `verificador-certificado-antecedentes.api`        | `76.76.21.21`          |
+| CNAME  | `verificador-certificado-antecedentes.api.www`    | `cname.vercel-dns.com` |
+
+> Si NIC Chile no permite guiones en host, agregá solo el CNAME en `verificador-certificado-antecedentes` apuntando a `cname.vercel-dns.com`.
+
+### 6.2 Vincular en Vercel
+1. Vercel → tu proyecto → **Settings** → **Domains**
+2. Escribí `verificador-certificado-antecedentes.api.dirtrab.cl` → **Add**
+3. Vercel valida los DNS (puede tardar hasta 24h, normalmente <30 min)
+4. Una vez validado, Vercel emite el certificado SSL automáticamente
+5. La URL final queda activa: `https://verificador-certificado-antecedentes.api.dirtrab.cl/<TOKEN>`
 
 ---
 
