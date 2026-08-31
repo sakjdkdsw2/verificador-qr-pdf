@@ -2,12 +2,12 @@
 
 ## ¿Qué es esto?
 Un sistema para servir PDFs protegidos por token a través de QR codes.
-- **URL final de producción:** `https://verificador-certificado-antecedentes.api.dirtrab.cl/<TOKEN>`
+- **URL final de producción:** `https://verificador-certificado-antecedentes.api.ditrab.cl/<TOKEN>`
 - **URL de desarrollo (Vercel):** `https://verificador-qr-pdf.vercel.app/<TOKEN>`
 - Cuando comprés el dominio `dirtrab.cl` y conectes el subdominio `verificador-certificado-antecedentes`, todas las URLs pasarán a apuntar a producción.
 
 ## Ejemplo con el token de muestra
-- Producción: https://verificador-certificado-antecedentes.api.dirtrab.cl/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
+- Producción: https://verificador-certificado-antecedentes.api.ditrab.cl/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
 - Vercel (dev):  https://verificador-qr-pdf.vercel.app/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
 
 ---
@@ -80,7 +80,7 @@ Ejecutá esto (ya tenés `qrcode` instalado):
 ```python
 import qrcode
 
-dominio = "https://verificador-certificado-antecedentes.api.dirtrab.cl"
+dominio = "https://verificador-certificado-antecedentes.api.ditrab.cl"
 token   = "JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ"
 url     = f"{dominio}/{token}"
 
@@ -97,7 +97,7 @@ print(f"QR generado: {url}")
 
 ---
 
-## PASO 6 — Conectar el dominio `verificador-certificado-antecedentes.api.dirtrab.cl`
+## PASO 6 — Conectar el dominio `verificador-certificado-antecedentes.api.ditrab.cl`
 
 ### 6.1 Comprar y configurar el dominio base
 1. Comprá `dirtrab.cl` en https://nic.cl (requiere RUT o pasaporte)
@@ -112,10 +112,10 @@ print(f"QR generado: {url}")
 
 ### 6.2 Vincular en Vercel
 1. Vercel → tu proyecto → **Settings** → **Domains**
-2. Escribí `verificador-certificado-antecedentes.api.dirtrab.cl` → **Add**
+2. Escribí `verificador-certificado-antecedentes.api.ditrab.cl` → **Add**
 3. Vercel valida los DNS (puede tardar hasta 24h, normalmente <30 min)
 4. Una vez validado, Vercel emite el certificado SSL automáticamente
-5. La URL final queda activa: `https://verificador-certificado-antecedentes.api.dirtrab.cl/<TOKEN>`
+5. La URL final queda activa: `https://verificador-certificado-antecedentes.api.ditrab.cl/<TOKEN>`
 
 ---
 
