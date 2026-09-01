@@ -1,49 +1,155 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="theme-color" content="#000000"/>
-<title>VERIFICADOR DOCUMENTO</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#fff;color:#111;font-family:Georgia,"Times New Roman",serif;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 24px 0}
-.container{max-width:560px;width:100%;margin:0 auto;padding:28px 24px;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.06);text-align:center;overflow:hidden}
-.logo-area{display:flex;justify-content:flex-start;align-items:flex-start;margin:0 0 24px;width:auto;position:static;left:auto;transform:none}
-.dt-logo{width:36px;height:auto;border-radius:50%;background:transparent;box-shadow:none}
-.terminosContainer{margin:8px 0;line-height:1.4;color:#000}
-.terminosContainer h1{font-size:1.15rem;font-weight:700;color:#000;margin:6px 0 8px;letter-spacing:.01em;font-family:Georgia,serif;line-height:1.25}
-.logoContainer{margin:28px 0 8px;display:flex;justify-content:center}
-.logoContainer img{width:96px;height:auto;opacity:.95}
-.btn-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin:8px 0 36px}
-.btn-purple{display:inline-block;width:280px;max-width:90%;padding:12px 20px;border:2px solid #7c3aed;color:#7c3aed;font-family:Georgia,serif;font-size:1.05rem;text-decoration:none;border-radius:8px;letter-spacing:.04em;text-align:center;transition:background .15s,color .15s;box-sizing:border-box}
-.btn-purple:hover{background:#7c3aed;color:#fff}
-.footerContainer{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:16px}
-.footerContainer .row img{max-height:120px;width:auto;opacity:.95}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <title>VERIFICADOR DOCUMENTO</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .logo-area {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-area img {
+      width: 72px;
+      height: auto;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, .12);
+    }
+
+    .logo-area span {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 6px 0 22px;
+      letter-spacing: .01em;
+      line-height: 1.25;
+    }
+
+    .doc-line {
+      font-size: 1.15rem;
+      color: #fff;
+      margin: 18px 0;
+      line-height: 1.4;
+    }
+
+    .check {
+      margin: 32px 0 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .check img {
+      width: 100px;
+      height: auto;
+    }
+
+    .btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin: 8px 0 36px;
+    }
+
+    .btn-purple {
+      display: inline-block;
+      width: 280px;
+      max-width: 90%;
+      padding: 12px 20px;
+      border: 2px solid #7c3aed;
+      color: #7c3aed;
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-radius: 8px;
+      letter-spacing: .04em;
+      text-align: center;
+      transition: background .15s, color .15s;
+    }
+
+    .btn-purple:hover {
+      background: #7c3aed;
+      color: #fff;
+    }
+
+    .footer-strip {
+      width: 100%;
+      max-width: 680px;
+      height: 150px;
+      background: #0a2540;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .footer-strip img {
+      max-height: 100px;
+      width: auto;
+      opacity: .95;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <div class="logo-area">
-    <img src="logo-dt.png" alt="DT" class="dt-logo"/>
-  </div>
-  <div class="terminosContainer">
+  <div class="container">
+    <div class="logo-area">
+      <img src="logo-dt.png" alt="DT"/>
+      <span>DT</span>
+    </div>
+
     <h1>Certificado Antecedentes Laborales Previsionales</h1>
+    <div class="doc-line">N° Serie Documental RGQAGGEWOBJQ</div>
+    <div class="doc-line">SYS INGENIERÍA SPA</div>
+    <div class="doc-line">Fecha de Emisión 31/08/2026</div>
+
+    <div class="check">
+      <img src="verified.svg" alt="Verificado"/>
+    </div>
+
+    <div class="btn-wrap">
+      <a class="btn-purple" href="/api/serve.js?token=JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ&download=1" target="_blank">Descargar Certificado</a>
+      <a class="btn-purple" href="/?t=reset">Verificar Otro</a>
+    </div>
   </div>
-  <div class="terminosContainer">N° Serie Documental RGQAGGEWOBJQ</div>
-  <div class="terminosContainer">SYS INGENIERÍA SPA</div>
-  <div class="terminosContainer"><strong>Fecha de Emisión 31/08/2026</strong></div>
-  <div class="logoContainer">
-    <img src="verified.svg" alt="Verificado" width="96"/>
+
+  <div class="footer-strip">
+    <img src="footer.svg" alt="Footer"/>
   </div>
-  <div class="btn-wrap">
-    <a class="btn-purple" href="/api/serve.js?token=JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ&download=1" target="_blank">Descargar Certificado</a>
-    <a class="btn-purple" href="https://midt.dirtrab.cl/verificadorDocumental">Verificar Otro</a>
-  </div>
-  <div class="footerContainer">
-    <div class="row"><img src="footer.svg" alt="Footer"/></div>
-  </div>
-</div>
 </body>
 </html>
