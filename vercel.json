@@ -6,6 +6,7 @@
   ],
   "routes": [
     { "src": "/api/serve.js", "dest": "api/serve.js" },
+    { "src": "/dt-logo.png", "dest": "/public/dt-logo.png" },
     { "src": "/(.*)", "dest": "api/landing.js" }
   ]
 }
