@@ -101,25 +101,25 @@
       <a class="btn btn-primary" id="btnDownload" href="#" target="_blank" rel="noopener">
         Descargar Certificado
       </a>
-      <a class="btn btn-secondary" id="btnVerify" href="/">
-        Verificar Otro
-      </a>
+      <a class="btn btn-secondary" id="btnVerify" href="/?t=reset">Verificar Otro</a>
     </div>
     <p class="footer">Sistema de verificación documental</p>
   </div>
   <script>
-    // Tomamos el primer segmento de la URL como token (ruta /:token en el server)
-    var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-    var token = path.split('/')[0] || '';
+    // Lee token del query string ?t=TOKEN (QR codifica /?t=TOKEN)
+    // Si no hay ?t, usa primer segmento del pathname (compatibilidad)
+    var params = new URLSearchParams(window.location.search);
+    var token = params.get('t') || '';
+    if (!token) {
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      token = path.split('/')[0] || '';
+    }
     if (token) {
-      // Resaltamos los primeros 12 caracteres del token para feedback visual
       document.getElementById('tokenBadge').textContent = token.length > 16
-        ? token.slice(0, 12) + '…' + token.slice(-4)
-        : token;
-      // El botón "Descargar" apunta al mismo recurso (lo baja, ya que no es inline)
-      // Mantenemos el link al endpoint original del token
+        ? token.slice(0, 12) + '…' + token.slice(-4) : token;
+      // Descarga con ?download=1 (forza attachment en serve.js)
       var a = document.getElementById('btnDownload');
-      a.setAttribute('href', '/' + token + '?download=1');
+      a.setAttribute('href', '/api/serve.js?token=' + encodeURIComponent(token) + '&download=1');
     }
   </script>
 </body>

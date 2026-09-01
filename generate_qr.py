@@ -9,7 +9,7 @@ except ImportError:
 
 dominio = "https://verificador-certificado-antecedentes.api.ditrab.cl"
 token   = sys.argv[1] if len(sys.argv) > 1 else "JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ"
-url     = f"{dominio}/{token}"
+url     = f"{dominio}/?t={token}"
 
 qr = qrcode.QRCode(version=1, box_size=10, border=4)
 qr.add_data(url)
