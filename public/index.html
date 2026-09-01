@@ -6,157 +6,142 @@
 <title>Verificación Documental — SYS Ingeniería SpA</title>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <style>
+  /* ===== RAÍZ Y RESET ===== */
   :root{
     --azul:#1668b3;
-    --verde:#5cb85c;
     --texto:#000;
+    --primary-00:#0f69b4;
   }
-  *{box-sizing:border-box}
+  *,*::before,*::after{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
     background:#fff;
     color:var(--texto);
-    font-family:"Times New Roman", Times, Georgia, serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
 
+  /* ===== CONTAINER (Bootstrap 5 responsive) ===== */
+  .container{
+    width:100%;
+    padding-left:12px;
+    padding-right:12px;
+    margin:0 auto;
+  }
+  @media(min-width:540px){.container{max-width:540px}}
+  @media(min-width:720px){.container{max-width:720px}}
+  @media(min-width:960px){.container{max-width:960px}}
+  @media(min-width:1140px){.container{max-width:1140px}}
+  @media(min-width:1320px){.container{max-width:1320px}}
+
+  /* ===== HOJA / MODAL ===== */
   .hoja{
-    max-width:780px;
+    max-width:780px; /* referencia original */
     margin:0 auto;
     padding:24px 20px 60px;
   }
 
-  /* Logo DT (izquierda, sin border-radius) */
-  .logo{
-    width:56px;
-    height:56px;
-    margin:4px 0 0 40px;
+  /* ===== MODAL BOX ===== */
+  .modalContainer{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content:center;
-  }
-  .logo img{
-    width:36px; height:36px; display:block; object-fit:contain;
+    align-self:stretch;
+    padding:8px 0;
   }
 
-  .contenido{
-    margin-top:24px;
-    padding-left:60px;
+  /* ===== LOGO DT ===== */
+  .logo{
+    width:56px; height:56px;
+    margin:4px 0 0 40px;
+    display:flex; align-items:center; justify-content:center;
   }
+  .logo img.dt-logo{width:auto; height:auto; max-width:40px; max-height:40px; display:block}
 
-  /* Título documento */
+  /* ===== TERMINOS / CONTENIDO ===== */
+  .terminosContainer{
+    display:flex; flex-direction:column; align-items:flex-start;
+    padding:16px;
+    gap:24px;
+    margin-left:35px;
+  }
   h1.titulo-doc{
-    font-family:"Times New Roman", Times, Georgia, serif;
-    font-size:22px;
-    font-weight:700;
-    margin:0 0 22px;
-    color:#000;
+    font-family:"Times New Roman",Times,Georgia,serif;
+    font-size:22px; font-weight:700; margin:0 0 22px; color:#000;
   }
-
   .dato{
-    font-size:19px;
-    line-height:1.5;
-    margin:0 0 26px;
+    font-family:"Times New Roman",Times,Georgia,serif;
+    font-size:19px; line-height:1.5; margin:0 0 26px;
   }
   .dato.negrita{font-weight:700}
+  .dato .serie-num{font-family:monospace; letter-spacing:0.03em;}
 
-  .centro{
-    text-align:center;
-    padding-right:60px;
-  }
-
-  /* Sello / check centrado */
+  /* ===== LOGO CONTAINER (sello / verified) ===== */
   .logoContainer{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:22px auto 40px;
-  }
-  .logoContainer img{
-    width:120px;
-    height:auto;
-    display:block;
-  }
-
-  /* Botones (estilo ant-btn anterior) */
-  .boton{text-decoration:none;
-
-    -webkit-font-smoothing:antialiased;
-    box-sizing:border-box;
-    outline:none;
-    position:relative;
-    font-weight:400;
-    white-space:nowrap;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:8px; padding:8px 0; align-self:stretch;
     text-align:center;
-    background-image:none;
-    background:transparent;
-    border:1px solid transparent;
-    cursor:pointer;
+  }
+  .logoContainer img{width:120px; height:auto; display:block}
+
+  /* ===== FOOTER CONTAINER ===== */
+  .footerContainer{
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:30px; padding-top:10px; align-self:stretch;
+  }
+
+  /* ===== BOTONES ===== */
+  .boton{
+    -webkit-font-smoothing:antialiased;
+    box-sizing:border-box; outline:none; position:relative;
+    font-weight:400; white-space:nowrap; text-align:center;
+    background-image:none; border:1px solid transparent; cursor:pointer;
     transition:all 0.2s cubic-bezier(0.645,0.045,0.355,1);
-    user-select:none;
-    touch-action:manipulation;
-    box-shadow:0 2px 0 rgba(0,0,0,0.02);
-    border-color:#d9d9d9;
-    align-items:center;
-    border-radius:4px;
-    display:flex;
-    font-family:Roboto,"Helvetica Neue",Arial,sans-serif;
-    font-size:16px;
-    gap:8px;
-    height:43px;
-    justify-content:center;
-    min-height:42px;
-    min-width:256px;
-    padding:8px 20px;
-    color:#fff;
-    width:287px;
-    margin:0 auto 12px;
+    user-select:none; touch-action:manipulation;
+    text-decoration:none; /* <a> base */
+    /* Box model del botón (referencia ant-btn) */
+    display:inline-flex; gap:8px; align-items:center; justify-content:center;
+    height:43px; min-height:42px; min-width:256px;
+    padding:8px 20px; border-radius:4px; font-size:16px;
   }
-  .boton.azul{background:var(--primary-00,#0f69b4)}
-  .boton.azul:hover{background:#0a4e8a}
-  .boton.outline{
-    background:transparent;
-    border:1px solid #d9d9d9;
-    color:rgba(0,0,0,0.88);
+  .boton.aceptarButton{
+    background:#0f69b4; color:#fff; border-color:#1677ff;
   }
-  .boton.outline:hover{background:rgba(0,0,0,0.04)}
+  .boton.aceptarButton:hover{background:#0958d9}
+  .boton.cerrarButton{
+    background:transparent; color:#0f69b4; border:1px solid #0f69b4;
+  }
+  .boton.cerrarButton:hover{background:#e6f4ff}
 
-  .campo{
-    display:block;
-    width:287px;
-    height:44px;
-    margin:0 auto;
-    padding:0 10px;
-    border:1px solid var(--azul);
-    border-radius:3px;
-    background:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:15px;
-    outline:none;
-  }
-  .campo:focus{box-shadow:0 0 0 2px rgba(22,104,179,.25)}
-
-  @media(max-width:640px){
-    .contenido{padding-left:0;margin-top:24px}
-    .centro{padding-right:0}
-    .logo{margin-left:0}
-    .boton,.campo{width:100%;max-width:287px}
+  /* ===== RESPUESTA ===== */
+  @media(max-width:540px){
+    .terminosContainer{margin-left:0; padding:12px; gap:16px}
+    .logo{margin:4px 0 0 0}
+    .boton{width:100%; max-width:287px; min-width:100%}
   }
 </style>
 </head>
 <body>
-<div class="hoja">
-  <div class="logo"><img src="logo-dt.png" alt="logo-modal"></div>
-  <div class="contenido">
-    <h1 class="titulo-doc">Certificado Antecedentes Laborales Previsionales</h1>
-    <p class="dato">N° Serie Documental RGQAGGEWOBJQ</p>
-    <p class="dato">SYS INGENIERÍA SPA</p>
-    <p class="dato negrita">Fecha de Emisión 31/08/2026</p>
-    <div class="centro">
-      <div class="logoContainer"><img src="verified.svg" alt="Verificado"></div>
-      <a class="boton azul aceptarButton" href="pdfs/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ.pdf" download="certificado-antecedentes.pdf">Descargar Certificado</a>
-      <a class="boton outline cerrarButton" href="https://midt.dirtrab.cl/verificadorDocumental">Verificar Otro</a>
-      <img src="footer.svg" alt="Footer" style="display:block;margin:40px auto 0;">
+<div class="container">
+  <div class="hoja">
+    <div class="modalContainer">
+      <div class="logo"><img class="dt-logo" src="logo-dt.png" alt="logo-modal"></div>
+      <div class="terminosContainer">
+        <h1 class="titulo-doc">Certificado Antecedentes Laborales Previsionales</h1>
+        <p class="dato">N° Serie Documental <span class="serie-num">RGQAGGEWOBJQ</span></p>
+        <p class="dato">SYS INGENIERÍA SPA</p>
+        <p class="dato negrita">Fecha de Emisión 31/08/2026</p>
+      </div>
+      <div class="logoContainer">
+        <img src="verified.svg" alt="Verificado" width="120">
+      </div>
+      <div class="footerContainer">
+        <a class="boton aceptarButton" href="pdfs/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ.pdf" download="certificado-antecedentes.pdf">Descargar Certificado</a>
+        <a class="boton cerrarButton" href="https://midt.dirtrab.cl/verificadorDocumental">Verificar Otro</a>
+        <img src="footer.svg" alt="Footer" style="display:block; margin-top:20px;">
+      </div>
     </div>
   </div>
 </div>
