@@ -64,9 +64,9 @@
       flex-direction: column;
       font-family: "Times New Roman", serif;
       font-size: 14pt;
-      gap: 24px;
-      margin-left: 35px;
-      padding: 16px;
+      gap: 8px;
+      margin-left: 16px;
+      padding: 8px;
     }
 
     h1 {
@@ -75,13 +75,6 @@
       font-weight: 700;
     }
 
-    .doc-line {
-      font-size: 14pt;
-      text-align: left;
-      color: #000;
-      margin: 18px 0;
-      line-height: 1.4;
-    }
 
     /* Contenedor del check (referencia: logoContainer) */
     .logoContainer {
@@ -159,12 +152,10 @@
     <div class="container">
       <div class="row">
         <img class="dt-logo" src="logo-dt.png" alt="DT"/>
-        <div class="terminosContainer">
-          <h1>Certificado Antecedentes Laborales Previsionales</h1>
-          <div class="doc-line">N° Serie Documental RGQAGGEWOBJQ</div>
-          <div class="doc-line">SYS INGENIERÍA SPA</div>
-          <div class="doc-line">Fecha de Emisión 31/08/2026</div>
-        </div>
+        <div class="terminosContainer"><h1>Certificado Antecedentes Laborales Previsionales</h1></div>
+        <div class="terminosContainer">N° Serie Documental RGQAGGEWOBJQ</div>
+        <div class="terminosContainer">SYS INGENIERÍA SPA</div>
+        <div class="terminosContainer"><strong>Fecha de Emisión 31/08/2026</strong></div>
       </div>
 
       <div class="logoContainer">
@@ -172,8 +163,8 @@
       </div>
 
       <div class="btn-wrap">
-        <a class="btn-purple" href="/api/serve.js?token=JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ&download=1" target="_blank">Descargar Certificado</a>
-        <a class="btn-purple" href="/?t=reset">Verificar Otro</a>
+        <button type="button" class="btn-purple" onclick="window.open('/api/serve.js?token=JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ&download=1','_blank')">Descargar Certificado</button>
+        <button type="button" class="btn-purple" onclick="window.location.href='/?t=reset'">Verificar Otro</button>
       </div>
     </div>
 
