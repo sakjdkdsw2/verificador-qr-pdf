@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#000000"/>
   <title>VERIFICADOR DOCUMENTO</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -40,11 +43,9 @@
       text-align: left;
     }
 
-    /* Fila superior: logo (dt-logo) + título/datos (terminosContainer) */
     .row {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
       width: 100%;
     }
 
@@ -59,18 +60,20 @@
     }
 
     .terminosContainer {
-      flex: 1;
-      min-width: 0;
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      font-family: Roboto;
+      font-size: 20px;
+      gap: 24px;
+      margin-left: 35px;
+      padding: 16px;
     }
 
     h1 {
-      font-size: 1.45rem;
-      text-align: center;
-      font-weight: 700;
-      color: #000;
-      margin: 6px 0 22px;
-      letter-spacing: .01em;
-      line-height: 1.25;
+      font-family: Roboto;
+      font-size: 20px;
+      margin-left: 30px;
     }
 
     .doc-line {
@@ -151,8 +154,8 @@
 <body>
   <div class="modalContainer">
     <div class="container">
+      <img class="dt-logo" src="logo-dt.png" alt="DT"/>
       <div class="row">
-        <img class="dt-logo" src="logo-dt.png" alt="DT"/>
         <div class="terminosContainer">
           <h1>Certificado Antecedentes Laborales Previsionales</h1>
           <div class="doc-line">N° Serie Documental RGQAGGEWOBJQ</div>
