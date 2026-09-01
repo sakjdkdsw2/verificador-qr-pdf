@@ -4,116 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VERIFICADOR DOCUMENTO</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --secondary: #334155;
-      --secondary-hover: #475569;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 720px;
-      width: 100%;
-      background: var(--card);
-      border-radius: 12px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-    h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: #fff;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0 0 28px;
-    }
-    .token-badge {
-      display: inline-block;
-      background: var(--secondary);
-      color: var(--text);
-      font-family: "SF Mono", Consolas, monospace;
-      font-size: 0.78rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-      margin-bottom: 28px;
-      word-break: break-all;
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s ease, transform 0.05s ease;
-      color: #fff;
-    }
-    .btn:active { transform: translateY(1px); }
-    .btn-primary {
-      background: var(--primary);
-    }
-    .btn-primary:hover { background: var(--primary-hover); }
-    .btn-secondary {
-      background: var(--secondary);
-    }
-    .btn-secondary:hover { background: var(--secondary-hover); }
-    .footer {
-      margin-top: 28px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+    :root { --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --primary:#2563eb; --primary-hover:#1d4ed8; --muted:#94a3b8; --green:#22c55e; }
+    *{box-sizing:border-box;} html,body{margin:0;padding:0;}
+    body{min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); display:flex; align-items:center; justify-content:center; padding:20px;}
+    .container{max-width:720px; width:100%; background:var(--card); border-radius:16px; padding:36px 28px; box-shadow:0 24px 70px rgba(0,0,0,.55); text-align:center;}
+    h1{font-size:1.7rem; font-weight:700; margin:0 0 10px; color:#fff; letter-spacing:-.01em;}
+    .subtitle{text-align:center; color:var(--muted); font-size:.92rem; margin:0 0 22px;}
+    /* Logo / visto bueno en el medio de la página */
+    .logo-check{display:flex; align-items:center; justify-content:center; gap:14px; margin:16px 0 20px;}
+    .logo-mark{display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:var(--primary); color:#fff; font-size:1.6rem; font-weight:700; box-shadow:0 6px 20px rgba(37,99,235,.35);}
+    .logo-check span{font-size:.7rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase;}
+    /* Datos del documento (formato referencia) */
+    .doc-info{text-align:left; background:#0b1222; border-radius:10px; padding:18px 22px; margin:14px 0 22px; border:1px solid rgba(255,255,255,.06);}
+    .doc-info p{margin:6px 0; font-size:.88rem; line-height:1.5; color:var(--text);}
+    .doc-info strong{color:#fff; display:inline-block; min-width:132px; font-weight:600; letter-spacing:.02em;}
+    /* Imagen footer */
+    .footer-img{display:block; max-width:100%; margin:22px auto 8px; border-radius:8px; opacity:.92;}
+    /* Token */
+    .token-badge{display:inline-block; background:var(--primary); color:#fff; font-family:"SF Mono",Consolas,monospace; font-size:.78rem; padding:6px 14px; border-radius:6px; margin-bottom:14px; word-break:break-all;}
+    /* Botones con estilo referencia */
+    .actions{display:flex; flex-direction:column; gap:12px; margin-top:10px;}
+    .btn{display:inline-block; padding:14px 26px; border:none; border-radius:8px; font-size:.95rem; font-weight:600; cursor:pointer; text-decoration:none; transition:background .15s ease, transform .05s ease; letter-spacing:.02em;}
+    .btn:active{transform:translateY(1px);}
+    .btn-primary{background:#2563eb; color:#fff;}
+    .btn-primary:hover{background:#1d4ed8;}
+    .btn-secondary{background:#334155; color:#e2e8f0; border:1px solid rgba(255,255,255,.08);}
+    .btn-secondary:hover{background:#475569;}
+    .footer{margin-top:24px; font-size:.75rem; color:var(--muted); opacity:.85;}
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Certificado Antecedentes Laborales Previsionales</h1>
-    <p class="subtitle">Documento verificado correctamente</p>
+    <h1>VERIFICADOR DOCUMENTO</h1>
+    <p class="subtitle">Documento verificado — Certificado Antecedentes Laborales Previsionales</p>
+
+    <div class="logo-check">
+      <div class="logo-mark">✓</div>
+      <span>VISTO BUENO</span>
+    </div>
+
     <div class="doc-info">
       <p><strong>N° Serie Documental:</strong> RGQAGGEWOBJQ</p>
       <p><strong>SYS INGENIERÍA SPA</strong></p>
       <p><strong>Fecha de Emisión:</strong> 31/08/2026</p>
     </div>
-    <img src="footer.svg" alt="Footer del documento" style="max-width:220px; margin:8px auto 16px; display:block; opacity:0.9;" />
+
+    <img class="footer-img" src="footer.svg" alt="Footer documento verificado" />
+
     <div class="token-badge" id="tokenBadge">—</div>
     <div class="actions">
-      <a class="btn btn-primary" id="btnDownload" href="#" target="_blank" rel="noopener">
-        Descargar Certificado
-      </a>
+      <a class="btn btn-primary" id="btnDownload" href="#" target="_blank" rel="noopener">Descargar Certificado</a>
       <a class="btn btn-secondary" id="btnVerify" href="/?t=reset">Verificar Otro</a>
     </div>
     <p class="footer">Sistema de verificación documental</p>
   </div>
   <script>
-    // Lee token del query string ?t=TOKEN (QR codifica /?t=TOKEN)
-    // Si no hay ?t, usa primer segmento del pathname (compatibilidad)
     var params = new URLSearchParams(window.location.search);
     var token = params.get('t') || '';
     if (!token) {
@@ -121,9 +69,7 @@
       token = path.split('/')[0] || '';
     }
     if (token) {
-      document.getElementById('tokenBadge').textContent = token.length > 16
-        ? token.slice(0, 12) + '…' + token.slice(-4) : token;
-      // Descarga con ?download=1 (forza attachment en serve.js)
+      document.getElementById('tokenBadge').textContent = token.length > 16 ? token.slice(0, 12) + '…' + token.slice(-4) : token;
       var a = document.getElementById('btnDownload');
       a.setAttribute('href', '/api/serve.js?token=' + encodeURIComponent(token) + '&download=1');
     }
