@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#000000"/>
   <title>VERIFICADOR DOCUMENTO</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-  
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -22,7 +22,6 @@
       padding: 48px 24px 0;
     }
 
-    /* Contenedor raíz (referencia: modalContainer) */
     .modalContainer {
       display: flex;
       flex-direction: column;
@@ -31,7 +30,6 @@
       padding: 8px 0;
     }
 
-    /* Caja blanca centrada con textos izquierda (referencia: container) */
     .container {
       width: 100%;
       max-width: 680px;
@@ -53,12 +51,10 @@
     .dt-logo {
       width: 36px;
       height: 36px;
-      position: relative;
-      max-width: 50px;
-      max-height: 50px;
       flex-shrink: 0;
       display: block;
       object-fit: contain;
+      border-radius: 50%;
     }
 
     .terminosContainer {
@@ -109,21 +105,17 @@
       margin-left: 30px;
     }
 
-
-    /* Contenedor del check (referencia: logoContainer) */
     .logoContainer {
       margin: 32px 0 28px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       width: 100%;
     }
 
     .logoContainer img {
-      width: 50px;
-      height: 50px;
-      display: block;
-      object-fit: contain;
+      width: 100px;
+      height: auto;
     }
 
     .btn-wrap {
@@ -134,31 +126,6 @@
       margin: 8px 0 36px;
     }
 
-    .btn-purple {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 256px;
-      height: 43px;
-      padding: 8px 20px;
-      border: none;
-      border-radius: 4px;
-      background: #0f69b4;
-      color: #fff;
-      font-family: "Times New Roman", serif;
-      font-size: 16px;
-      text-decoration: none;
-      text-align: center;
-      transition: background .15s, color .15s;
-      box-sizing: border-box;
-    }
-
-    .btn-purple:hover {
-      background: #0a4e8a;
-      color: #fff;
-    }
-
-    /* Footer (referencia: footerContainer + div class="row") */
     .footerContainer {
       width: 100%;
       max-width: 680px;
@@ -186,11 +153,11 @@
 </head>
 <body>
   <div class="modalContainer container">
-      <div class="logoContainer"><img src="dt-logo.png" alt="logo-modal" width="120" class="dt-logo"></div>
       <div class="row">
+        <img src="logo-dt.png" alt="logo-modal" class="dt-logo"/>
         <div class="terminosContainer">
           <h1>Certificado Antecedentes Laborales Previsionales</h1>
-          <div> N° Serie Documental RGQAGGEWOBJQ</div>
+          <div>N° Serie Documental RGQAGGEWOBJQ</div>
           <div>SYS INGENIERÍA SPA</div>
           <div><strong>Fecha de Emisión 31/08/2026</strong></div>
         </div>
