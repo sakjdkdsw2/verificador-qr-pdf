@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verificación Documental — SYS Ingeniería SpA</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <style>
   :root{
     --azul:#1668b3;
@@ -18,13 +19,14 @@
     font-family:"Times New Roman", Times, Georgia, serif;
     min-height:100vh;
   }
+
   .hoja{
     max-width:780px;
     margin:0 auto;
     padding:24px 20px 60px;
   }
 
-  /* Logo DT (sin border-radius) */
+  /* Logo DT (izquierda, sin border-radius) */
   .logo{
     width:56px;
     height:56px;
@@ -34,7 +36,7 @@
     justify-content:center;
   }
   .logo img{
-    width:56px; height:56px; display:block; object-fit:contain;
+    width:36px; height:36px; display:block; object-fit:contain;
   }
 
   .contenido{
@@ -42,7 +44,7 @@
     padding-left:60px;
   }
 
-  /* Título */
+  /* Título documento */
   h1.titulo-doc{
     font-family:"Times New Roman", Times, Georgia, serif;
     font-size:22px;
@@ -63,48 +65,60 @@
     padding-right:60px;
   }
 
-  .sello{
-    width:120px;
-    height:120px;
+  /* Sello / check centrado */
+  .logoContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
     margin:22px auto 40px;
+  }
+  .logoContainer img{
+    width:120px;
+    height:auto;
     display:block;
   }
 
-  /* Botones (estilo "ant-btn" que estaba bien antes: Roboto, box-shadow rgba, cubic-bezier, border-color #d9d9d9) */
+  /* Botones (estilo ant-btn anterior) */
   .boton{
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-    outline: none;
-    position: relative;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-    user-select: none;
-    touch-action: manipulation;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.02);
-    border-color: #d9d9d9;
-    align-items: center;
-    border-radius: 4px;
-    display: flex;
-    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    gap: 8px;
-    height: 43px;
-    justify-content: center;
-    min-height: 42px;
-    min-width: 256px;
-    padding: 8px 20px;
-    background: var(--primary-00,#0f69b4);
-    color: #fff;
-    width:auto;
+    -webkit-font-smoothing:antialiased;
+    box-sizing:border-box;
+    outline:none;
+    position:relative;
+    font-weight:400;
+    white-space:nowrap;
+    text-align:center;
+    background-image:none;
+    background:transparent;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:all 0.2s cubic-bezier(0.645,0.045,0.355,1);
+    user-select:none;
+    touch-action:manipulation;
+    box-shadow:0 2px 0 rgba(0,0,0,0.02);
+    border-color:#d9d9d9;
+    align-items:center;
+    border-radius:4px;
+    display:flex;
+    font-family:Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    gap:8px;
+    height:43px;
+    justify-content:center;
+    min-height:42px;
+    min-width:256px;
+    padding:8px 20px;
+    color:#fff;
+    width:287px;
     margin:0 auto 12px;
   }
-  .boton:hover{background:#0a4e8a}
-  .boton.cerrar{background:#fff;color:#1668b3;border-color:#1668b3}
-  .boton.cerrar:hover{background:#1668b3;color:#fff}
+  .boton.azul{background:var(--primary-00,#0f69b4)}
+  .boton.azul:hover{background:#0a4e8a}
+  .boton.outline{
+    background:transparent;
+    border:1px solid #d9d9d9;
+    color:rgba(0,0,0,0.88);
+  }
+  .boton.outline:hover{background:rgba(0,0,0,0.04)}
 
   .campo{
     display:block;
@@ -115,20 +129,19 @@
     border:1px solid var(--azul);
     border-radius:3px;
     background:#fff;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     font-size:15px;
     outline:none;
   }
   .campo:focus{box-shadow:0 0 0 2px rgba(22,104,179,.25)}
 
-  @media (max-width:640px){
+  @media(max-width:640px){
     .contenido{padding-left:0;margin-top:24px}
     .centro{padding-right:0}
     .logo{margin-left:0}
     .boton,.campo{width:100%;max-width:287px}
   }
 </style>
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
 <body>
 <div class="hoja">
@@ -139,9 +152,10 @@
     <p class="dato">SYS INGENIERÍA SPA</p>
     <p class="dato negrita">Fecha de Emisión 31/08/2026</p>
     <div class="centro">
-      <img class="sello" src="verified.svg" alt="Verificado" width="120">
-      <button class="boton aceptarButton" type="button">Descargar Certificado</button>
-      <button class="boton cerrar cerrarButton" type="button">Verificar Otro</button>
+      <div class="logoContainer"><img src="verified.svg" alt="Verificado"></div>
+      <button class="boton azul aceptarButton" type="button">Descargar Certificado</button>
+      <button class="boton outline cerrarButton" type="button">Verificar Otro</button>
+      <img src="footer.svg" alt="Footer" style="display:block;margin:40px auto 0;">
     </div>
   </div>
 </div>
