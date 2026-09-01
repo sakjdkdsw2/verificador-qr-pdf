@@ -23,21 +23,34 @@
     margin:0 auto;
     padding:24px 20px 60px;
   }
+
+  /* Logo DT (sin border-radius) */
   .logo{
     width:56px;
     height:56px;
-    border:4px solid #000;
-    border-radius:50%;
     margin:4px 0 0 40px;
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   .logo img{
-    width:36px; height:36px; display:block; object-fit:contain;
+    width:56px; height:56px; display:block; object-fit:contain;
   }
+
   .contenido{
-    margin-top:80px;
+    margin-top:24px;
     padding-left:60px;
   }
+
+  /* Título */
+  h1.titulo-doc{
+    font-family:"Times New Roman", Times, Georgia, serif;
+    font-size:22px;
+    font-weight:700;
+    margin:0 0 22px;
+    color:#000;
+  }
+
   .dato{
     font-size:19px;
     line-height:1.5;
@@ -56,20 +69,43 @@
     margin:22px auto 40px;
     display:block;
   }
+
+  /* Botones (estilo "ant-btn" que estaba bien antes: Roboto, box-shadow rgba, cubic-bezier, border-color #d9d9d9) */
   .boton{
-    display:block;
-    width:287px;
-    height:44px;
-    margin:0 auto 36px;
-    background:var(--azul);
-    border:none;
-    border-radius:3px;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:15px;
-    cursor:pointer;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    outline: none;
+    position: relative;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+    border-color: #d9d9d9;
+    align-items: center;
+    border-radius: 4px;
+    display: flex;
+    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    gap: 8px;
+    height: 43px;
+    justify-content: center;
+    min-height: 42px;
+    min-width: 256px;
+    padding: 8px 20px;
+    background: var(--primary-00,#0f69b4);
+    color: #fff;
+    width:auto;
+    margin:0 auto 12px;
   }
-  .boton:hover{background:#12578f}
+  .boton:hover{background:#0a4e8a}
+  .boton.cerrar{background:#fff;color:#1668b3;border-color:#1668b3}
+  .boton.cerrar:hover{background:#1668b3;color:#fff}
+
   .campo{
     display:block;
     width:287px;
@@ -84,8 +120,9 @@
     outline:none;
   }
   .campo:focus{box-shadow:0 0 0 2px rgba(22,104,179,.25)}
+
   @media (max-width:640px){
-    .contenido{padding-left:0;margin-top:40px}
+    .contenido{padding-left:0;margin-top:24px}
     .centro{padding-right:0}
     .logo{margin-left:0}
     .boton,.campo{width:100%;max-width:287px}
@@ -96,13 +133,14 @@
 <div class="hoja">
   <div class="logo"><img src="logo-dt.png" alt="logo-modal"></div>
   <div class="contenido">
+    <h1 class="titulo-doc">Certificado Antecedentes Laborales Previsionales</h1>
     <p class="dato">N° Serie Documental RGQAGGEWOBJQ</p>
     <p class="dato">SYS INGENIERÍA SPA</p>
     <p class="dato negrita">Fecha de Emisión 31/08/2026</p>
     <div class="centro">
       <img class="sello" src="verified.svg" alt="Verificado" width="120">
-      <button class="boton" type="button">Descargar Certificado</button>
-      <div style="margin-top:8px;color:#555;font-size:13px;">Verificar con código</div>
+      <button class="boton aceptarButton" type="button">Descargar Certificado</button>
+      <button class="boton cerrar cerrarButton" type="button">Verificar Otro</button>
     </div>
   </div>
 </div>
