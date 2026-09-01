@@ -43,11 +43,11 @@
     }
 
     .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 518.237px;
       height: 774.400px;
-      display: flex;
-      align-items: flex-start;
-      width: 100%;
     }
 
     .dt-logo {
@@ -178,33 +178,21 @@
     }
   </style>
 </head>
-<body>
-  <div class="modalContainer container">
-      <div class="logo-dt-container"><img src="logo-dt.png" alt="logo-modal" class="dt-logo"/></div>
-      <div class="row">
-        <div class="terminosContainer">
-          <h1>Certificado Antecedentes Laborales Previsionales</h1>
-          <div>N° Serie Documental RGQAGGEWOBJQ</div>
-          <div>SYS INGENIERÍA SPA</div>
-          <div><strong>Fecha de Emisión 31/08/2026</strong></div>
-        </div>
+<body>  <div class="modalContainer container">
+    <div class="row" style="width:518.237px;height:774.400px;flex-direction:column;align-items:center;">
+      <img src="logo-dt.png" alt="logo-modal" class="dt-logo" style="width:36px;height:36px;object-fit:contain;display:block;margin-bottom:8px;">
+      <div class="terminosContainer" style="margin-left:0;padding:6px;text-align:center;">
+        <h1>Certificado Antecedentes Laborales Previsionales</h1>
+        <div>N° Serie Documental RGQAGGEWOBJQ</div>
+        <div>SYS INGENIERÍA SPA</div>
+        <div><strong>Fecha de Emisión 31/08/2026</strong></div>
       </div>
-
-      <div class="logoContainer">
-        <img src="verified.svg" alt="Verificado"/>
-      </div>
-
+      <div class="logoContainer"><img src="verified.svg" alt="Verificado" width="120"></div>
       <div class="btn-wrap">
-        <button type="button" class="ant-btn css-mncuj7 ant-btn-default ant-btn-color-default ant-btn-variant-outlined aceptarButton"><span>Descargar Certificado</span></button>
-        <button type="button" class="ant-btn css-mncuj7 ant-btn-default ant-btn-color-default ant-btn-variant-outlined cerrarButton"><span>Verificar Otro</span></button>
+        <button type="button" class="ant-btn aceptarButton"><span>Descargar Certificado</span></button>
+        <button type="button" class="ant-btn cerrarButton"><span>Verificar Otro</span></button>
       </div>
+      <div class="footerContainer"><img src="footer.svg" alt="Footer"></div>
     </div>
-
-    <div class="footerContainer">
-      <div class="row">
-        <img src="footer.svg" alt="Footer"/>
-      </div>
-    </div>
-  </div>
-</body>
+  </div></body>
 </html>
