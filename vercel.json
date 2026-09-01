@@ -1,7 +1,9 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/([^/]+)", "dest": "/api/serve.js?token=$1" }
+    { "src": "/([^/]+)", "dest": "/api/serve.js?token=$1" },
+    { "src": "/", "dest": "/public/index.html" }
   ],
-  "builds": [{ "src": "api/serve.js", "use": "@vercel/node" }]
+  "builds": [{ "src": "api/serve.js", "use": "@vercel/node" }],
+  "public": true
 }

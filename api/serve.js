@@ -11,8 +11,10 @@ export default function handler(req, res) {
   if (!fs.existsSync(file)) {
     return res.status(404).send(`PDF no encontrado para token: ${token}`);
   }
+  const download = (req.query.download || '').toString();
+  const disposition = download === '1' ? `attachment; filename="${token}.pdf"` : `inline; filename="${token}.pdf"`;
   res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', `inline; filename="${token}.pdf"`);
+  res.setHeader('Content-Disposition', disposition);
   res.setHeader('Cache-Control', 'public, max-age=86400');
   fs.createReadStream(file).pipe(res);
 }

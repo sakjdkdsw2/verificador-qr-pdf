@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VERIFICADOR DOCUMENTO</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #334155;
+      --secondary-hover: #475569;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 28px;
+    }
+    .token-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--text);
+      font-family: "SF Mono", Consolas, monospace;
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 28px;
+      word-break: break-all;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.05s ease;
+      color: #fff;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--primary);
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary {
+      background: var(--secondary);
+    }
+    .btn-secondary:hover { background: var(--secondary-hover); }
+    .footer {
+      margin-top: 28px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Certificado Antecedentes Laborales Previsionales</h1>
+    <p class="subtitle">Documento verificado correctamente</p>
+    <div class="token-badge" id="tokenBadge">—</div>
+    <div class="actions">
+      <a class="btn btn-primary" id="btnDownload" href="#" target="_blank" rel="noopener">
+        Descargar Certificado
+      </a>
+      <a class="btn btn-secondary" id="btnVerify" href="/">
+        Verificar Otro
+      </a>
+    </div>
+    <p class="footer">Sistema de verificación documental</p>
+  </div>
+  <script>
+    // Tomamos el primer segmento de la URL como token (ruta /:token en el server)
+    var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+    var token = path.split('/')[0] || '';
+    if (token) {
+      // Resaltamos los primeros 12 caracteres del token para feedback visual
+      document.getElementById('tokenBadge').textContent = token.length > 16
+        ? token.slice(0, 12) + '…' + token.slice(-4)
+        : token;
+      // El botón "Descargar" apunta al mismo recurso (lo baja, ya que no es inline)
+      // Mantenemos el link al endpoint original del token
+      var a = document.getElementById('btnDownload');
+      a.setAttribute('href', '/' + token + '?download=1');
+    }
+  </script>
+</body>
+</html>

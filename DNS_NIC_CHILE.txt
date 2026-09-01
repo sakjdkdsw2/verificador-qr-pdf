@@ -1,0 +1,27 @@
+NIC CL - CONFIGURACION DNS PARA SUBDOMINIO
+=============================================
+
+Dominio base:      ditrab.cl
+Subdominio final:  verificador-certificado-antecedentes.api.ditrab.cl
+PDF actual:        JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ.pdf
+
+REGISTROS A AGREGAR EN NIC CHILE (Panel DNS del dominio)
+-------------------------------------------------------
+
+Tipo    | Nombre / Host                                       | Valor
+--------|--------------------------------------------------------|-------------------------
+A       | verificador-certificado-antecedentes.api            | 76.76.21.21
+CNAME   | verificador-certificado-antecedentes.api            | cname.vercel-dns.com
+
+NOTA: NIC Chile puede usar "Registro" en lugar de "Tipo".
+      El campo "Nombre/Host" es la parte antes del dominio base.
+
+URL FINAL (después de validar en Vercel):
+-----------------------------------------
+https://verificador-certificado-antecedentes.api.ditrab.cl/JlrwqDz9yZ3cmRFfU5TWxA4o3muYYR8a2OrEeuQkahZ
+
+PASOS POSTERIORES:
+1. NIC Chile → agregar registros A + CNAME (arriba)
+2. Esperar propagación (hasta 24h, normalmente <30 min)
+3. Vercel → project Settings → Domains → agregar el dominio → validar
+4. Regenerar QR apuntando al dominio final
